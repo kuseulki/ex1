@@ -4,22 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b8adb0e-7430-454e-83e8-d617e4ada39e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ex1-board/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ex1-board/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ex1-board/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ex1-board/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ex1-board/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ex1-board/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ex1-board/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ex1-board/src/main/java/com/example/ex1board/Ex1BoardApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo3board3/Demo3board3Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ex1-board/src/main/java/com/example/ex1board/domain/Article.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo3board3/domain/Article.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ex1-board/src/main/java/com/example/ex1board/domain/ArticleComment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo3board3/domain/ArticleComment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ex1-board/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ex1-board/src/test/java/com/example/ex1board/Ex1BoardApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/demo3board3/Demo3board3ApplicationTests.java" afterDir="false" />
-    </list>
+    <list default="true" id="4b8adb0e-7430-454e-83e8-d617e4ada39e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -270,7 +255,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1699885572795</updated>
-      <workItem from="1699885573602" duration="5884000" />
+      <workItem from="1699885573602" duration="6490000" />
     </task>
     <servers />
   </component>
