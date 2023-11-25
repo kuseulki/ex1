@@ -33,9 +33,9 @@ class ArticleCommentServiceTest {
 
         //Given
         Long articleId = 1L;
-        given(articleRepository.findById(articleId)).willReturn(Optional.of(
-                Article.of("title", "content", "#hashtag"))
-        );
+//        given(articleRepository.findById(articleId)).willReturn(Optional.of(
+//                Article.of("kk","title", "content", "#hashtag"))
+//        );
 
         //When
         List<ArticleCommentDto> articleComments = sut.searchArticleComment(articleId);
@@ -51,9 +51,9 @@ class ArticleCommentServiceTest {
 
         //Given
         Long articleId = 1L;
-        given(articleRepository.findById(articleId)).willReturn(Optional.of(
-                Article.of("title", "content", "#hashtag"))
-        );
+//        given(articleRepository.findById(articleId)).willReturn(Optional.of(
+//                Article.of("kk","title", "content", "#hashtag"))
+//        );
 
         //When
         List<ArticleCommentDto> articleComments = sut.searchArticleComment(articleId);
