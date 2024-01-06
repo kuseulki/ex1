@@ -7,7 +7,6 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 public record ArticleCommentDto(
-
         Long id,
         Long articleId,
         UserAccountDto userAccountDto,
@@ -21,7 +20,6 @@ public record ArticleCommentDto(
         return new ArticleCommentDto(id, articleId, userAccountDto, content, createdAt, createdBy, modifiedAt, modifiedBy);
     }
 
-    // entity -> dto
     public static ArticleCommentDto from(ArticleComment entity) {
         return new ArticleCommentDto(
                 entity.getId(),
@@ -35,7 +33,6 @@ public record ArticleCommentDto(
         );
     }
 
-    // dto -> entity
     public ArticleComment toEntity(Article entity) {
         return ArticleComment.of(
                 entity,
@@ -43,4 +40,5 @@ public record ArticleCommentDto(
                 content
         );
     }
+
 }
