@@ -34,8 +34,6 @@
             </attr>
         </attr>
     </attr>
-<<<<<<< Updated upstream
-=======
 
     <attr sel="#pagination">
         <attr sel="li[0]/a"
@@ -58,5 +56,4 @@
     </attr>
 
     </attr>
->>>>>>> Stashed changes
 </thlogic>
