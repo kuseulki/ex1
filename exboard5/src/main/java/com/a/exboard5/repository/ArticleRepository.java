@@ -2,6 +2,7 @@ package com.a.exboard5.repository;
 
 import com.a.exboard5.domain.Article;
 import com.a.exboard5.domain.QArticle;
+import com.a.exboard5.repository.querydsl.ArticleRepositoryCustom;
 import com.querydsl.core.types.dsl.StringExpression;
 import com.querydsl.core.types.dsl.DateTimeExpression;
 import org.springframework.data.domain.Page;
@@ -15,6 +16,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 @RepositoryRestResource
 public interface ArticleRepository extends
         JpaRepository<Article, Long>,
+        ArticleRepositoryCustom,
         QuerydslPredicateExecutor<Article>,
         QuerydslBinderCustomizer<QArticle> {
 
