@@ -26,7 +26,7 @@ public class ArticleCommentController {
 
         )));
 
-        return "redirect:/articles" + articleCommentRequest.articleId();
+        return "redirect:/articles/" + articleCommentRequest.articleId();
     }
 
     // 삭제
