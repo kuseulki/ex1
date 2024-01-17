@@ -1,4 +1,4 @@
-package com.a.exboard5.domain.type;
+package com.a.exboard5.domain.constant;
 
 import lombok.Getter;
 

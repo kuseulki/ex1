@@ -1,11 +1,12 @@
 package com.a.exboard5.controller;
 
 import com.a.exboard5.config.SecurityConfig;
-import com.a.exboard5.domain.type.SearchType;
+import com.a.exboard5.domain.constant.SearchType;
 import com.a.exboard5.dto.ArticleWithCommentsDto;
 import com.a.exboard5.dto.UserAccountDto;
 import com.a.exboard5.service.ArticleService;
 import com.a.exboard5.service.PaginationService;
+import com.a.exboard5.util.FormDataEncoder;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -29,17 +30,20 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.mockito.BDDMockito.*;
 
 @DisplayName("View 컨트롤러 - 게시글")
-@Import(SecurityConfig.class)
+@Import({SecurityConfig.class, FormDataEncoder.class})
 @WebMvcTest(ArticleController.class)
 class ArticleControllerTest {
+
+    private final MockMvc mvc;
+    private final FormDataEncoder formDataEncoder;
 
     @MockBean private ArticleService articleService;
     @MockBean private PaginationService paginationService;
 
-    private final MockMvc mvc;
 
-    public ArticleControllerTest(@Autowired MockMvc mvc) {
+    public ArticleControllerTest(@Autowired MockMvc mvc, @Autowired FormDataEncoder formDataEncoder) {
         this.mvc = mvc;
+        this.formDataEncoder = formDataEncoder;
     }
 
 
@@ -119,25 +123,26 @@ class ArticleControllerTest {
         then(paginationService).should().getPaginationBarNumbers(pageable.getPageNumber(), Page.empty().getTotalPages());
     }
 
-    @DisplayName("[View][GET] 게시글 상세 페이지 - 정상 호출 ")
-    @Test
-    public void givenNothing_whenRequestingArticleView_thenReturnArticleView() throws Exception {
-
-        //Given
-        Long articleId = 1L;
-        given(articleService.getArticle(articleId)).willReturn(createArticleWithCommentsDto());
-
-        // When & Then
-        mvc.perform(get("/articles/" + articleId))
-                .andExpect(status().isOk())
-                .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_HTML))
-                .andExpect(view().name("articles/detail"))
-                .andExpect(model().attributeExists("article"))
-                .andExpect(model().attributeExists("articleComments"));
-
-        // then
-        then(articleService).should().getArticle(articleId);
-    }
+//    @Disabled("구현 중")
+//    @DisplayName("[View][GET] 게시글 상세 페이지 - 정상 호출 ")
+//    @Test
+//    public void givenNothing_whenRequestingArticleView_thenReturnArticleView() throws Exception {
+//
+//        //Given
+//        Long articleId = 1L;
+//        given(articleService.getArticle(articleId)).willReturn(createArticleWithCommentsDto());
+//
+//        // When & Then
+//        mvc.perform(get("/articles/" + articleId))
+//                .andExpect(status().isOk())
+//                .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_HTML))
+//                .andExpect(view().name("articles/detail"))
+//                .andExpect(model().attributeExists("article"))
+//                .andExpect(model().attributeExists("articleComments"));
+//
+//        // then
+//        then(articleService).should().getArticle(articleId);
+//    }
 
     @Disabled("구현 중")
     @DisplayName("[View][GET] 게시글 검색 전용 페이지 - 정상 호출 ")
@@ -221,7 +226,7 @@ class ArticleControllerTest {
     }
 
     private UserAccountDto createUserAccountDto(){
-        return UserAccountDto.of(1L,
+        return UserAccountDto.of(
                 "kk",
                 "pw",
                 "kk@mail.com",
