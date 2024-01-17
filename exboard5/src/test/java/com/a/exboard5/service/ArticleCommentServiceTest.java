@@ -3,11 +3,11 @@ package com.a.exboard5.service;
 import com.a.exboard5.domain.Article;
 import com.a.exboard5.domain.ArticleComment;
 import com.a.exboard5.domain.UserAccount;
-import com.a.exboard5.domain.type.SearchType;
 import com.a.exboard5.dto.ArticleCommentDto;
 import com.a.exboard5.dto.UserAccountDto;
 import com.a.exboard5.repository.ArticleCommentRepository;
 import com.a.exboard5.repository.ArticleRepository;
+import com.a.exboard5.repository.UserAccountRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -18,7 +18,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import javax.persistence.EntityNotFoundException;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
@@ -30,6 +29,7 @@ class ArticleCommentServiceTest {
     @InjectMocks private ArticleCommentService sut;
     @Mock private ArticleCommentRepository articleCommentRepository;
     @Mock private ArticleRepository articleRepository;
+    @Mock private UserAccountRepository userAccountRepository;
 
     @DisplayName("게시글 ID로 조회 시, 댓글 리스트 반환")
     @Test
@@ -57,6 +57,7 @@ class ArticleCommentServiceTest {
         //Given
         ArticleCommentDto dto = createArticleCommentDto("댓글");
         given(articleRepository.getReferenceById(dto.articleId())).willReturn(createArticle());
+        given(userAccountRepository.getReferenceById(dto.userAccountDto().userId())).willReturn(createUserAccount());
         given(articleCommentRepository.save(any(ArticleComment.class))).willReturn(null);
 
         //When
@@ -64,6 +65,8 @@ class ArticleCommentServiceTest {
 
         //Then
         then(articleRepository).should().getReferenceById(dto.articleId());
+        then(userAccountRepository).should().getReferenceById(dto.userAccountDto().userId());
+        then(articleCommentRepository).should(never()).getReferenceById(anyLong());
         then(articleCommentRepository).should().save(any(ArticleComment.class));
     }
 
@@ -146,7 +149,7 @@ class ArticleCommentServiceTest {
 
     private UserAccountDto createUserAccountDto() {
         return UserAccountDto.of(
-                1L,
+
                 "uno",
                 "password",
                 "uno@mail.com",
