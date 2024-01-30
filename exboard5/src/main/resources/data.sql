@@ -7,7 +7,7 @@ values ('uno', '{noop}asdf1234', 'Uno', 'uno@mail.com', 'I am Uno.', now(), 'uno
 
 insert into user_account (user_id, user_password, nickname, email, memo, created_at, created_by, modified_at,
                           modified_by)
-values ('uno2', '{noop}asdf1234', 'kk', 'kk@mail.com', 'I am kk.', now(), 'kk', now(), 'kk')
+values ('kk', '{noop}asdf1234', 'kk', 'kk@mail.com', 'I am kk.', now(), 'kk', now(), 'kk')
 ;
 
 insert into user_account (user_id, user_password, nickname, email, memo, created_at, created_by, modified_at,
