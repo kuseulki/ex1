@@ -50,8 +50,10 @@ class ArticleControllerTest {
 
     private final FormDataEncoder formDataEncoder;
 
-    @MockBean private ArticleService articleService;
-    @MockBean private PaginationService paginationService;
+    @MockBean
+    private ArticleService articleService;
+    @MockBean
+    private PaginationService paginationService;
 
 
     ArticleControllerTest(
