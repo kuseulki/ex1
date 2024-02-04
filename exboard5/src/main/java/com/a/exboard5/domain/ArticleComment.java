@@ -1,5 +1,4 @@
 package com.a.exboard5.domain;
-
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -24,13 +23,10 @@ import java.util.Set;
 })
 @Entity
 public class ArticleComment extends AuditingFields {
-
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @Setter @ManyToOne(optional = false)
     private Article article; // 게시글 (ID)
-
     @Setter
     @JoinColumn(name = "userId")
     @ManyToOne(optional = false)
@@ -76,7 +72,6 @@ public class ArticleComment extends AuditingFields {
         if (!(o instanceof ArticleComment that)) return false;
         return this.getId() != null && this.getId().equals(that.getId());
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(this.getId());
