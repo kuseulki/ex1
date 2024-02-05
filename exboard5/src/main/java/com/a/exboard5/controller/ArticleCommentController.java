@@ -1,6 +1,5 @@
 package com.a.exboard5.controller;
 
-import com.a.exboard5.dto.UserAccountDto;
 import com.a.exboard5.dto.request.ArticleCommentRequest;
 import com.a.exboard5.dto.security.BoardPrincipal;
 import com.a.exboard5.service.ArticleCommentService;
@@ -18,19 +17,18 @@ public class ArticleCommentController {
 
     private final ArticleCommentService articleCommentService;
 
-    // 댓글 등록
     @PostMapping("/new")
     public String postNewArticleComment(
-            ArticleCommentRequest articleCommentRequest,
-            @AuthenticationPrincipal BoardPrincipal boardPrincipal
+            @AuthenticationPrincipal BoardPrincipal boardPrincipal,
+            ArticleCommentRequest articleCommentRequest
     ) {
         articleCommentService.saveArticleComment(articleCommentRequest.toDto(boardPrincipal.toDto()));
+
         return "redirect:/articles/" + articleCommentRequest.articleId();
     }
 
-    // 삭제
     @PostMapping("/{commentId}/delete")
-    public String deleteArticleCommnet(
+    public String deleteArticleComment(
             @PathVariable Long commentId,
             @AuthenticationPrincipal BoardPrincipal boardPrincipal,
             Long articleId
