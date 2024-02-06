@@ -22,6 +22,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+
 @Slf4j
 @RequiredArgsConstructor
 @Transactional
@@ -73,13 +74,13 @@ public class ArticleService {
         Article article = dto.toEntity(userAccount);
         article.addHashtags(hashtags);
         articleRepository.save(article);
-
     }
 
     public void updateArticle(Long articleId, ArticleDto dto) {
         try {
             Article article = articleRepository.getReferenceById(articleId);
             UserAccount userAccount = userAccountRepository.getReferenceById(dto.userAccountDto().userId());
+
             if (article.getUserAccount().equals(userAccount)) {
                 if (dto.title() != null) { article.setTitle(dto.title()); }
                 if (dto.content() != null) { article.setContent(dto.content()); }
@@ -129,6 +130,7 @@ public class ArticleService {
     public List<String> getHashtags() {
         return hashtagRepository.findAllHashtagNames(); // TODO: HashtagService 로 이동을 고려해보자.
     }
+
 
     private Set<Hashtag> renewHashtagsFromContent(String content) {
         Set<String> hashtagNamesInContent = hashtagService.parseHashtagNames(content);
