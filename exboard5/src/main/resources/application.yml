@@ -16,9 +16,9 @@ spring:
 #    username: ex5user
 #    password: 1234
 #    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:postgresql://localhost:5432/board
-    username: postgres
-    password: asdf1234
+    url: ${LOCAL_DB_URL}
+    username: ${LOCAL_DB_USERNAME}
+    password: ${LOCAL_DB_PASSWORD}
   jpa:
     open-in-view: false
     defer-datasource-initialization: true
